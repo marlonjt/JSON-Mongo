@@ -1,0 +1,31 @@
+{
+  "name": "mongodb",
+  "version": "1.0.0",
+  "description": "json con mongo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "Marlon Tituaña",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.8.11",
+    "nodemon": "^2.0.2"
+  },
+  "nodemonConfig": {
+    "restortable": "rs",
+    "ingnore": [
+      "node_modules/*/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "NODE_ENT": "develoment",
+      "PORT": 4000
+    }
+  }
+}
