@@ -13,7 +13,7 @@
   "author": "Marlon Tituaña",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.19.2",
     "mongoose": "^5.13.20",
     "nodemon": "^2.0.22"
   },
