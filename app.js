@@ -1,41 +1,37 @@
-const express = require('express');
+//  Conexión con express and mongoose
+const express = require("express");
+const mongoose = require("mongoose");
 
-const mongoose=require('mongoose');
 const app = express();
 
-mongoose.connect("mongodb://localhost/libroAPI",{ useUnifiedTopology: true ,useNewUrlParser:true});
-module.exports=mongoose;
+//Conexión con mongo db
+mongoose.connect("mongodb://localhost/libroAPI");
 mongoose.connection
-.once("open",()=>console.log("Connected"))
-.on("error",error=>{
-    console.log("Your Error",error);
-});
+  .once("open", () => console.log("Conectado a MongoDB"))
+  .on("error", (error) => console.log("Error de conexión:", error));
 
-const bookRouter=express.Router();
-
+//Model y puerto para API
+const Libro = require("./models/libroModel");
+const bookRouter = express.Router();
 const port = process.env.PORT || 3000;
 
-const Libro=require('./models/libroModel')
-
-bookRouter.route("/libro")
-.get((req,res)=>{
-    Libro.find((err,libros)=>{
-        if(err){
-            res.send(err);
-        }else{
-            return res.json(libros);
-
-        }
-        });
-
+//Ruta para la api
+bookRouter.route("/libro").get(async (req, res) => {
+  try {
+    const libros = await Libro.find();
+    res.json(libros);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
-app.use('/api', bookRouter);
+app.use("/api", bookRouter);
 
-app.get('/',(req,res)=>{
-    res.send('clase api');
+app.get("/", (req, res) => {
+  res.send("API de Libros - GET /api/libro");
 });
-app.listen(port,()=>{
-    console.log(`Puerto ${port}`);
-})
 
+//puerto de conexión
+app.listen(port, () => {
+  console.log(`Servidor corriendo en puerto ${port}`);
+});

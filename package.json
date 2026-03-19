@@ -2,7 +2,7 @@
   "name": "mongodb",
   "version": "1.0.0",
   "description": "json con mongo",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
-    "mongoose": "^5.13.20",
+    "mongoose": "^9.3.1",
     "nodemon": "^3.1.0"
   },
   "nodemonConfig": {

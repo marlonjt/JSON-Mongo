@@ -1,1 +1,36 @@
-node_modules
+# --- Dependencias ---
+node_modules/
+.package-lock.json
+
+# --- Variables de entorno (seguridad: nunca subir credenciales) ---
+.env
+.env.*
+.env.local
+.env.development
+.env.production
+*.env
+
+# --- Logs ---
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Caché y builds ---
+.npm
+dist/
+build/
+.cache/
+
+# --- Editores y OS ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- Cobertura de tests ---
+coverage/
+.nyc_output/
